@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="/newTemplate.xhtml">
+        <ui:define name="title">Vehicle Registration</ui:define>
+        <ui:define name="top">
+            <div id="blank"></div>
+            <div id="menu">
+                <ui:include src="manu.xhtml"/>
+            </div>
+        </ui:define>
+        <ui:define name="left">
+            <h2>Something about car </h2>
+            <h:graphicImage name="3.jpg" library="images" height="185" width="270"/>
+            <h:graphicImage name="4.jpg" library="images" height="180" width="270"/>
+            <h:graphicImage name="7.jpg" library="images" height="180" width="270"/>
+
+        </ui:define>
+        <ui:define name="content">
+
+            <center>
+                <h:graphicImage name="10.jpg" library="images" height="300" width="800"/>
+                <h:form  enctype="multipart/form-data">
+                    <table> 
+                        <tr>
+                            <td>
+                                <h2>Vehicle Registration Form</h2><hr/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><p:outputLabel value="Vehicle Name:"/> </td>
+                            <td><p:inputText value="#{vehicles.VName}"/></td>
+                        </tr> 
+                        <tr>
+                            <td><p:outputLabel value="Seat Number:"/></td>
+                            <td><p:inputText value="#{vehicles.seatNo}"/></td>
+                        </tr>
+                        <tr>
+                            <td><p:outputLabel value="Driver Name:"/> </td>
+                            <td><p:inputText value="#{vehicles.driverName}"/></td>
+                        </tr> 
+                        <tr>
+                            <td><p:outputLabel value="Driver Phone Number:"/></td>
+                            <td><p:inputText value="#{vehicles.DPhone}"/></td>
+                        </tr> 
+                        <tr>
+                            <td><p:outputLabel value="Upload Vehicle Image : "/></td>
+                            <td><p:fileUpload value="#{vehicles.file}" mode="simple"/></td>
+                        </tr>
+                        <tr>
+                            <td> <p:outputLabel value="location:"/></td>
+                            <td><p:inputText value="#{vehicles.location}"/></td>
+                        </tr> 
+                        <tr>
+                            <td><p:outputLabel value="Rent Cost Per Day:"/></td>
+                            <td><p:inputText value="#{vehicles.rentCost}"/></td>
+                        </tr>         
+                        <tr>
+                            <td></td>
+                            <td>
+                                <p:commandButton value="Submit" action="#{vehicles.insert}"/>  
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>
+
+                <br/><br/>
+                <p>At Holiday Autos we make car hire easy. We find you the best price in car rental worldwide.
+                    We have 30,000 pickup locations in all major airports and also downtown. Our Customer Care 
+                    Team is available 7 days of the week so if your plans change we can help. We offer free 
+                    cancellation up to 24 hours before your pickup time with most of our suppliers and we never 
+                    charge credit card fees. Book your hire car today and start your journey.</p>
+                <br/><br/>
+            </center>
+        </ui:define>
+    </ui:composition>
+</html>
+

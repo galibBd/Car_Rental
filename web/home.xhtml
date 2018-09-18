@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="/newTemplate.xhtml">
+        <ui:define name="title">Home</ui:define>
+        <ui:define name="top">
+            <div id="blank"></div>
+            <div id="menu">
+                <ui:include src="manu.xhtml"/>
+            </div>
+        </ui:define>
+        <ui:define name="left">
+            <h2>Something about car </h2>
+            <h:graphicImage name="5.jpg" library="images" height="185" width="270"/>
+            <h:graphicImage name="10.jpg" library="images" height="187" width="270"/>
+        </ui:define>
+        <ui:define name="content">
+                      <h2>Hertz in Bangladesh</h2>
+                <p>Hertz car rental service in USA take you through an amazing journey while providing you with the 
+                    flexibility of exploring this diverse nation at your own pace. We have our car hire outlets located
+                    at all the major location in USA making it really convenient for our clients to pick up their 
+                    chosen car.No matter how short.</p><br/>
+            <center>
+            
+            <h:form>
+                <h2>Where and when do you want to travel?</h2>
+                  <table>
+                            <tr><td colspan="4"></td></tr>
+                            <tr>
+                                <td colspan="2"><p:outputLabel value="Leaving from:"/></td>
+
+                                <td colspan="2"><p:outputLabel value="Going to:"/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p:outputLabel value="Zilla"/>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <p:outputLabel value="Zilla"/>
+                                </td>
+                                <td>
+                                    <p:outputLabel value="Thana"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p:selectOneMenu  value="#{vehicles.location}">
+                                        <f:selectItem itemLabel="Select Zilla" itemValue=""/>
+                                        <f:selectItems value="#{location.get_zillas()}"/>
+                                    </p:selectOneMenu>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <p:selectOneMenu value="#{location.zilla}">
+                                        <f:selectItem itemLabel="Select Zilla" itemValue=""/>
+                                        <f:selectItems value="#{location.get_zillas()}"/>
+                                        <p:ajax update="cc"/>
+                                    </p:selectOneMenu>
+                                </td>
+                                <td>
+                                    <p:selectOneMenu value="#{location.thana}" id="cc">
+                                        <f:selectItem itemLabel="Select Thana" itemValue=""/>
+                                        <f:selectItems value="#{location.get_thanas()}"/>
+                                    </p:selectOneMenu>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Date:</td>
+                                <td colspan="2">Time:</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <p:calendar value="#{searchResult.date}" placeholder="mm-dd-yyyy" />
+                                </td>
+
+                                <td colspan="2">
+                                    <p:selectOneMenu value="#{searchResult.time}">
+                                        <f:selectItems value="#{vehicles.times}"/>
+                                        
+                                    </p:selectOneMenu>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <p:outputLabel value="Seat Number:"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <p:inputText value="#{vehicles.seatNo}"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <p>
+                            <p:commandButton value="Search" action="#{vehicles.search}" ajax="false"/>
+                        </p>
+                                 
+             </h:form>
+           <br/>
+                    <h:graphicImage name="2.jpg" library="images" height="130" width="800"/>
+            </center>
+        </ui:define>
+    </ui:composition>
+
+</html>
+

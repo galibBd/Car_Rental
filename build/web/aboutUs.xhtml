@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/newTemplate.xhtml">
+        <ui:define name="title">About us</ui:define>
+        <ui:define name="top">
+            <div id="blank"></div>
+            <div id="menu">
+                <ui:include src="manu.xhtml"/>
+            </div>
+        </ui:define>
+        <ui:define name="left">
+            <h2>Something about car </h2>
+            <h:graphicImage name="1.jpg" library="images" height="185" width="270"/>
+            <h:graphicImage name="3.jpg" library="images" height="187" width="270"/>
+        </ui:define>
+        <ui:define name="content">
+
+            <h:form>
+                <h2>Hertz in Bangladesh</h2>
+                <p>Hertz car rental service in USA take you through an amazing journey while providing you with the 
+                    flexibility of exploring this diverse nation at your own pace. We have our car hire outlets located
+                    at all the major location in USA making it really convenient for our clients to pick up their 
+                    chosen car.No matter how short.</p>
+
+                <p>Hertz car rental service in USA take you through an amazing journey while providing you with the 
+                    flexibility of exploring this diverse nation at your own pace. We have our car hire outlets located
+                    at all the major location in USA making it really convenient for our clients to pick up their 
+                    chosen car.No matter how short.Hertz car rental service in USA take you through an amazing journey while providing you with the 
+                    flexibility of exploring this diverse nation at your own pace. We have our car hire outlets located
+                    at all the major location in USA.No matter how short.</p>
+                <p>Hertz car rental service in USA take you through an amazing journey while providing you with the 
+                    flexibility of exploring this diverse nation at your own pace. We have our car hire outlets located
+                    at all the major location in USA making it really convenient for our clients to pick up their 
+                    chosen car.No matter how short.</p><br/><br/>
+
+            </h:form>
+            <center>
+                <h:panelGrid columns="2">
+                    <h:graphicImage name="2.jpg" library="images" height="130" width="800"/>
+
+
+                </h:panelGrid>
+                <br/><br/>         
+
+            </center>
+        </ui:define>
+    </ui:composition>
+</html>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 27, 2018 11:38:02 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojo.Location" table="location" catalog="rent_car" optimistic-lock="version">
+        <id name="LId" type="java.lang.Integer">
+            <column name="l_id" />
+            <generator class="identity" />
+        </id>
+        <property name="zilla" type="string">
+            <column name="zilla" length="45" not-null="true" />
+        </property>
+        <property name="thana" type="string">
+            <column name="thana" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

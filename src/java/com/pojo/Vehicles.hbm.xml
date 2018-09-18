@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 27, 2018 11:38:02 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojo.Vehicles" table="vehicles" catalog="rent_car" optimistic-lock="version">
+        <id name="VId" type="java.lang.Integer">
+            <column name="v_id" />
+            <generator class="identity" />
+        </id>
+        <property name="VName" type="string">
+            <column name="v_name" length="45" not-null="true" />
+        </property>
+        <property name="seatNo" type="int">
+            <column name="seat_no" not-null="true" />
+        </property>
+        <property name="driverName" type="string">
+            <column name="driver_name" length="45" not-null="true" />
+        </property>
+        <property name="DPhone" type="string">
+            <column name="d_phone" length="45" not-null="true" />
+        </property>
+        <property name="imgUrl" type="string">
+            <column name="img_url" length="45" not-null="true" />
+        </property>
+        <property name="location" type="string">
+            <column name="location" length="45" not-null="true" />
+        </property>
+        <property name="rentCost" type="double">
+            <column name="rent_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

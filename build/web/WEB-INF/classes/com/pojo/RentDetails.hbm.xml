@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 27, 2018 11:38:02 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojo.RentDetails" table="rent_details" catalog="rent_car" optimistic-lock="version">
+        <id name="RId" type="java.lang.Integer">
+            <column name="r_id" />
+            <generator class="identity" />
+        </id>
+        <property name="VName" type="int">
+            <column name="v_name" not-null="true" />
+        </property>
+        <property name="driverName" type="string">
+            <column name="driver_name" length="45" not-null="true" />
+        </property>
+        <property name="userName" type="string">
+            <column name="user_name" length="45" not-null="true" />
+        </property>
+        <property name="startLocation" type="string">
+            <column name="start_location" length="45" not-null="true" />
+        </property>
+        <property name="endLocation" type="string">
+            <column name="end_location" length="45" not-null="true" />
+        </property>
+        <property name="rentDate" type="date">
+            <column name="rent_date" length="10" not-null="true" />
+        </property>
+        <property name="rentCost" type="double">
+            <column name="rent_cost" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

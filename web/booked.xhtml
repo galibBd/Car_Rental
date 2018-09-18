@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/newTemplate.xhtml">
+        <ui:define name="title">Booking Now</ui:define>
+        <ui:define name="top">
+            <div id="blank"></div>
+            <div id="menu">
+                <ui:include src="manu.xhtml"/>
+            </div>
+        </ui:define>
+        <ui:define name="left">
+            <h2>Something about car </h2>
+            <h:graphicImage name="1.jpg" library="images" height="172" width="270"/>
+            <h:graphicImage name="3.jpg" library="images" height="173" width="270"/>
+            <h:graphicImage name="8.jpg" library="images" height="173" width="270"/>
+
+        </ui:define>
+        <ui:define name="content">
+            <center><br/>
+                <h:form>
+
+                    <h:panelGrid columns="2">
+
+                        <p:graphicImage name="5.jpg" library="images" height="330" width="400"/>
+                        <table> 
+                            <tr>
+                                <td>
+                                    <h2>Booking details </h2> <hr/> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel value="User Name:"/> <h4>#{booked.UName}</h4> </td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                <td><p:outputLabel value="E-mail:"/> <h4>#{booked.email}</h4></td> 
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel value="No of Passengar:"/> <h4>#{booked.noOfPassengar}</h4></td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                <td><p:outputLabel value="From Location:"/> <h4>#{booked.fromLocation}</h4></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel value="To Location:"/> <h4>#{booked.toLocation}</h4></td>
+                                <td> </td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel value="Journey Date:"/> <h4>#{booked.date}</h4></td>
+                                <td></td>
+                            </tr> 
+                        </table>
+
+
+                    </h:panelGrid>
+                    <br/><br/>  
+                    <p:commandButton value="Print" action="#"/>
+                </h:form>
+                <h2>Hertz in United States</h2>
+                <p>Hertz car rental service in USA take you through an amazing journey while providing you with the 
+                    flexibility of exploring this diverse nation at your own pace. We have our car hire outlets located
+                    at all the major location in USA making it really convenient for our clients to pick up their 
+                    chosen car.No matter how short.</p>
+            </center>
+        </ui:define>
+    </ui:composition>
+</html>
+

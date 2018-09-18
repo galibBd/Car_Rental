@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/newTemplate.xhtml">
+        <ui:define name="title">Booking Now</ui:define>
+        <ui:define name="top">
+            <div id="blank"></div>
+            <div id="menu">
+                <ui:include src="manu.xhtml"/>
+            </div>
+        </ui:define>
+        <ui:define name="left">
+            <h2>Something about car </h2>
+            <h:graphicImage name="1.jpg" library="images" height="185" width="270"/>
+            <h:graphicImage name="3.jpg" library="images" height="187" width="270"/>
+        </ui:define>
+        <ui:define name="content">
+            <center>
+                <h:form>
+                    <h2>Hertz in United States</h2>
+                    <p>Hertz car rental service in USA take you through an amazing journey while providing you with the 
+                        flexibility of exploring this diverse nation at your own pace. We have our car hire outlets located
+                        at all the major location in USA making it really convenient for our clients to pick up their 
+                        chosen car.No matter how short.</p>
+
+                    <h:panelGrid columns="2">
+                        <h:graphicImage name="11.png" library="images" height="230" width="400"/>
+                        <table> 
+                            <tr>
+
+                                <td>
+                                    <h2>Enter details for booking</h2>  
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel value="User Name:"/> </td>
+                                <td><p:inputText value="#{booked.UName}"/></td>
+                            </tr> 
+                            <tr>
+                                <td><h:outputLabel value="E-mail"/></td>
+                                <td><p:inputText value="#{booked.email}"/></td>
+                            </tr>
+                            <tr>
+                                <td><h:outputLabel value="No of Passengar"/> </td>
+                                <td><h:inputText value="#{booked.noOfPassengar}"/></td>
+                            </tr> 
+                            <tr>
+                                <td><h:outputLabel value="From Location"/></td>
+                                <td> <p:selectOneMenu  value="#{booked.fromLocation}">
+                                        <f:selectItem itemLabel="Select Zilla" itemValue=""/>
+                                        <f:selectItems value="#{booked.locations}"/>
+                                    </p:selectOneMenu>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h:outputLabel value="To Location"/></td>
+                                <td> <p:selectOneMenu  value="#{booked.toLocation}">
+                                        <f:selectItem itemLabel="Select Zilla" itemValue=""/>
+                                        <f:selectItems value="#{booked.locations}"/>
+                                    </p:selectOneMenu>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h:outputLabel value="Journey Date"/> </td>
+                                <td><p:calendar value="#{booked.date}" placeholder="mm-dd-yyyy" pattern="dd-MM-yyyy" /></td>
+                            </tr> 
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <h:commandButton value="Submit" action="#{booked.book}"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </h:panelGrid>
+                    <br/><br/>         
+                </h:form>
+            </center>
+        </ui:define>
+    </ui:composition>
+</html>
+

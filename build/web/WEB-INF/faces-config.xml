@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <navigation-rule>
+        <from-view-id>/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{users.login}</from-action>
+            <from-outcome>true</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>     
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/signin.xhtml</from-view-id>     
+        <navigation-case>
+            <from-action>#{users.addUser}</from-action>
+            <from-outcome>true</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule> 
+    <navigation-rule>
+        <from-view-id>/vehicle_registration.xhtml</from-view-id>     
+        <navigation-case>
+            <from-action>#{vehicles.insert}</from-action>
+            <from-outcome>true</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/home.xhtml</from-view-id>     
+        <navigation-case>
+            <from-action>#{vehicles.search}</from-action>
+            <from-outcome>true</from-outcome>
+            <to-view-id>/search_result.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{vehicles.search}</from-action>
+            <from-outcome>false</from-outcome>
+            <to-view-id>/error.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>
+        <from-view-id>/search_result.xhtml</from-view-id>     
+        <navigation-case>
+            <from-action>#{searchResult.bookNow}</from-action>
+            <from-outcome>true</from-outcome>
+            <to-view-id>/bookNow.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/bookNow.xhtml</from-view-id>     
+        <navigation-case>
+            <from-action>#{booked.book}</from-action>
+            <from-outcome>true</from-outcome>
+            <to-view-id>/booked.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>    
+        <navigation-case>
+            <from-action>#{users.logout}</from-action>
+            <from-outcome>true</from-outcome>
+            <to-view-id>/logout.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

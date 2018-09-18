@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="/newTemplate.xhtml">
+        <ui:define name="title">Search Result</ui:define>
+        <ui:define name="top">
+            <div id="blank"></div>
+            <div id="menu">
+                <ui:include src="manu.xhtml"/>
+            </div>
+        </ui:define>
+        <ui:define name="left">
+            <h2>Something about car </h2>
+            <h:graphicImage name="1.jpg" library="images" height="185" width="270"/>
+            <h:graphicImage name="3.jpg" library="images" height="187" width="270"/>
+        </ui:define>
+        <ui:define name="content">
+            <center>
+                  <h:form id="form">
+            <p:dataGrid var="vehcl" value="#{vehicles.vehicleList()}" columns="2" rows="4" paginator="true" id="v"
+                        paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {NextPageLink} {LastPageLink}"
+                        rowsPerPageTemplate="6,12,16">
+                <f:facet name="header">
+                    <h:outputLabel value="Search Result"></h:outputLabel>
+                </f:facet>
+                <p:panel header="#{vehcl.VName}">
+                    <p:panelGrid columns="1">
+                        <h:graphicImage name="#{vehcl.imgUrl}" library="images" width="300" height="230" ></h:graphicImage>
+                    </p:panelGrid>
+                   
+                    <p:commandLink update=":form:vcl" oncomplete="PF('vclDetails').show()" title="View Details">
+                        <h:outputText styleClass="ui-icon ui-icon-search"/>
+                        <f:setPropertyActionListener value="#{vehcl}" target="#{searchResult.selectedvcl}"/>
+                    </p:commandLink>
+                    
+                     <p:commandButton value="Book Now" action="#{searchResult.bookNow}">
+                        
+                    </p:commandButton>
+                </p:panel>
+            </p:dataGrid>
+            <p:dialog header="Vehicle Info" widgetVar="vclDetails" modal="true" showEffect="fade"
+                      hideEffect="fade" rendererType="false">
+                <p:outputPanel id="vcl">
+                <p:panelGrid columns="2">
+                    <f:facet name="header">
+                        <h:graphicImage name="#{searchResult.selectedvcl.imgUrl}" library="images" width="300" height="230" ></h:graphicImage>
+                    </f:facet>
+                    <h:outputText value="Vehicle Name: "/>
+                    <h:outputText value="#{searchResult.selectedvcl.VName}"/>
+                    <h:outputText value="Seat Number:"/>
+                    <h:outputText value="#{searchResult.selectedvcl.seatNo}"/>
+                    <h:outputText value="Driver Name: "/>
+                    <h:outputText value="#{searchResult.selectedvcl.driverName}"/>
+                    <h:outputText value="Driver Phone Number:"/>
+                    <h:outputText value="#{searchResult.selectedvcl.DPhone}"/>
+                    <h:outputText value="Rent Cost per Day: "/>
+                    <h:outputText value="#{searchResult.selectedvcl.rentCost}"/>
+                    <h:outputText value="Status:"/>
+                    <h:outputText value="#{searchResult.selectedvcl.status}"/>
+                    
+                </p:panelGrid> 
+                </p:outputPanel>
+            </p:dialog>
+        </h:form>
+            </center>
+        </ui:define>
+    </ui:composition>     
+        
+        
+      
+</html>
+

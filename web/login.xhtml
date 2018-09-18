@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/newTemplate.xhtml">
+        <ui:define name="title">Login</ui:define>
+        <ui:define name="top">
+            <div id="blank"></div>
+            <div id="menu">
+                <ui:include src="manu.xhtml"/>
+            </div>
+        </ui:define>
+        <ui:define name="left">
+            <h2>Something about car </h2>
+            <h:graphicImage name="9.jpg" library="images" height="183" width="270"/>
+            <h:graphicImage name="8.jpg" library="images" height="180" width="270"/>
+        </ui:define>
+        <ui:define name="content">
+            <center>
+            <h:form>
+            <h2>Hertz in United States</h2>
+            <p>Hertz car rental service in USA take you through an amazing journey while providing you with the 
+                flexibility of exploring this diverse nation at your own pace. We have our car hire outlets located
+                at all the major location in USA making it really convenient for our clients to pick up their 
+                chosen car. We also offer special services to our clients such as Hertz Never Lost - In-Car 
+                Navigation, SiriusXM Radio, emergency roadside assistance and services for people
+                with disabilities. Our car hire in USA is a tremendous way to explore and enjoy your stay,
+                no matter how short or long.</p>
+       
+            <h:panelGrid columns="2">
+                 <h:graphicImage name="5.jpg" library="images" height="230" width="270"/>
+            <table> 
+                <tr>
+                    
+                    <td>
+                      <h2>Login Form</h2>  
+                    </td>
+                </tr>
+                <tr>
+                    <td><p:outputLabel value="User Name:"/> </td>
+                    <td><p:inputText value="#{users.UName}"/></td>
+                </tr> 
+                <tr>
+                    <td><p:outputLabel value="Password:"/></td>
+                    <td><p:password value="#{users.password}"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                       <p:commandButton value="Login" action="#{users.login}"/>  
+                    </td>
+                </tr>
+            </table>
+            </h:panelGrid>
+            <br/><br/>
+            <p:outputLabel value="If you are not register yeat."/>
+            Please <a href="faces/signin.xhtml">Signin</a> first. <br/><br/>          
+             </h:form>
+            </center>
+        </ui:define>
+    </ui:composition>
+</html>
+
